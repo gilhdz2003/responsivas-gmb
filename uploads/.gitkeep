@@ -1,0 +1,6 @@
+# Este directorio almacenará:
+# - PDFs generados de responsivas firmadas
+# - Imágenes de firmas digitales (si aplica)
+# - Archivos temporales de generación
+
+# El contenido real no se versiona en git (ver .gitignore)

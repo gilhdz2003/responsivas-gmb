@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Config sensitive
+config/db_credentials.php
+
+# Uploads
+uploads/*.pdf
+uploads/*.png
+uploads/*.jpg
+!uploads/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary
+*.tmp
+*.temp
+.cache/
