@@ -16,6 +16,9 @@ uploads/*.png
 uploads/*.jpg
 !uploads/.gitkeep
 
+# Templates (PDFs de referencia son muy grandes)
+templates/*.pdf
+
 # IDE
 .vscode/
 .idea/
