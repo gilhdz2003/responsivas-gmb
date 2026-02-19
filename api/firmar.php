@@ -93,9 +93,25 @@ try {
         ]);
     }
 
-    // Generar PDF (será implementado en siguiente fase)
-    // $pdfPath = generateResponsivaPDF($responsivaId);
-    // $db->query("UPDATE responsivas SET pdf_ruta = :pdf WHERE id = :rid", ['pdf' => $pdfPath, 'rid' => $responsivaId]);
+    // Generar PDF
+    try {
+        require_once __DIR__ . '/../utils/PDFGenerator.php';
+        $pdfGen = new PDFGenerator();
+        $pdfGen->generateResponsivaPDF($responsivaId);
+    } catch (Exception $pdfEx) {
+        error_log("Error generando PDF: " . $pdfEx->getMessage());
+        // No fallar el proceso si el PDF falla
+    }
+
+    // Enviar notificación por email
+    try {
+        require_once __DIR__ . '/../utils/Notifier.php';
+        $notifier = new Notifier();
+        $notifier->notifyResponsivaFirmada($responsivaId);
+    } catch (Exception $emailEx) {
+        error_log("Error enviando email: " . $emailEx->getMessage());
+        // No fallar el proceso si el email falla
+    }
 
     echo json_encode([
         'success' => true,
