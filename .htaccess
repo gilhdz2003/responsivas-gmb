@@ -1,0 +1,27 @@
+# GMB Responsivas - Configuración Hostinger
+
+# Activar RewriteEngine
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+</IfModule>
+
+# Default index files
+DirectoryIndex index.php index.html
+
+# Permitir todo el acceso
+Order Allow,Deny
+Allow from all
+
+# Seguridad básica - solo bloquear archivos sensibles específicos
+<FilesMatch "^(db_credentials\.php|composer\.json|composer\.lock|\.env)$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+
+# Habilitar PHP
+<FilesMatch "\.php$">
+    Order Allow,Deny
+    Allow from all
+    SetHandler application/x-httpd-php
+</FilesMatch>

@@ -1,0 +1,27 @@
+# GMB Responsivas - Configuración de la aplicación
+
+# Default index file
+DirectoryIndex index.php
+
+# Activar RewriteEngine para rutas internas
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /responsivas/
+
+    # Si el archivo no existe, redirigir a index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>
+
+# Permitir acceso a todos los archivos PHP
+<FilesMatch "\.php$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+# Seguridad básica
+<FilesMatch "^(db_credentials|\.env)\.php$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>

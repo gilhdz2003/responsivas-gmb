@@ -1,0 +1,25 @@
+open 82.180.175.188
+admintemp
+mbS3rvices*2019
+binary
+lcd c:/Users/admin/Documents/Proyectos Desarrollo/Proyectos 2026/GMB/Responsivas_GMB
+cd public_html
+mkdir responsivas
+cd responsivas
+prompt
+mput admin/*.php
+mput api/*.php
+mput auth/*.php
+mput config/*.php
+mput utils/*.php
+mput views/*.php
+mput empleado/*.php
+mput index.php
+mput composer.json
+mput README.md
+mkdir uploads
+mkdir assets
+mkdir assets/css
+mkdir assets/js
+mkdir assets/images
+bye
